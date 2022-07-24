@@ -1,10 +1,3 @@
-.categories-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .category-container {
   min-width: 30%;
   height: 240px;
@@ -25,7 +18,7 @@
     }
 
     & .category-body-container {
-      opacity: 0.9;
+      opacity: 1;
     }
   }
 
