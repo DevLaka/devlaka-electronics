@@ -1,22 +1,10 @@
 // Step 3
 // Import Routes and Route Components.
 // Used to assemble the routing at our application level.
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./routes/home/home.component";
+import Navigation from "./routes/navigation/navigation.component";
 
-// Step 8
-// Define Navigation Component
-const Navigation = () => {
-  return (
-    <div>
-      <div>
-        <h1>Navigation</h1>
-        {/* Define where to render the nested route components */}
-        <Outlet />
-      </div>
-    </div>
-  );
-};
 
 const Shop = () => {
   return <h2>Shop component</h2>;
