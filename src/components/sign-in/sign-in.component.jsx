@@ -1,9 +1,14 @@
-import { useState } from "react";
+// Step 9
+// Import useContext hook
+import { useState, useContext } from "react";
 import {
   createUserDocumentFromAuth,
   signInWithGooglePopup,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase.utils.js/firebase.utils";
+// Step 10
+// Import the userContext we created.
+import { UserContext } from "../../contexts/user.context";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import "./sign-in.styles.scss";
@@ -16,6 +21,10 @@ const defaultFormFields = {
 const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  // Step 11
+  // Accessing the UserContext.
+  // This returns the object passed to the value property in UserProvider.
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -30,7 +39,12 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      await signInAuthUserWithEmailAndPassword(email, password);
+      const { user } = await signInAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+      // Step 12
+      setCurrentUser(user);
       resetFormFields();
     } catch (err) {
       switch (err.code) {
