@@ -23,7 +23,13 @@ const Navigation = () => {
             SHOP
           </Link>
           <Link className="nav-link" to="/auth">
-            SIGN IN
+            {/* Step 16 */}
+            {/* Using context */}
+            {currentUser ? (
+              <span className="nav-link">SIGN OUT</span>
+            ) : (
+              <span className="nav-link">SIGN IN</span>
+            )}
           </Link>
         </div>
       </div>
