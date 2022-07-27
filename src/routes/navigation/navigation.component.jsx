@@ -14,10 +14,11 @@ const Navigation = () => {
   // In other words, any component that is listening for currentUser will render again.
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
+  // Step 23 : Commenting this
+  // const signOutHandler = async () => {
+  //   await signOutUser();
+  //   setCurrentUser(null);
+  // };
 
   return (
     <Fragment>
@@ -33,7 +34,7 @@ const Navigation = () => {
             {/* Step 16 */}
             {/* Using context */}
             {currentUser ? (
-              <span className="nav-link" onClick={signOutHandler}>
+              <span className="nav-link" onClick={signOutUser}>
                 SIGN OUT
               </span>
             ) : (

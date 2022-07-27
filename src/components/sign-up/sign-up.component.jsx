@@ -50,8 +50,8 @@ const SignUp = () => {
         password
       );
       // Step 15
-      // Set current user hooked in step 14.
-      setCurrentUser(user);
+      // Set current user hooked in step 14. , Commenting this on Step 23
+      // setCurrentUser(user);
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (err) {

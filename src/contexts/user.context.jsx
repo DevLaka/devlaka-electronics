@@ -7,6 +7,12 @@ import { createContext } from "react";
 // To store the user object import useState hook.
 import { useState } from "react";
 
+// Step 20
+import { useEffect } from "react";
+import { onAuthStateChangedListener } from "../utils/firebase.utils.js/firebase.utils";
+
+import { createUserDocumentFromAuth } from "../utils/firebase.utils.js/firebase.utils";
+
 // Step 2
 // Create context.
 // Context API have 2 pieces.
@@ -44,5 +50,19 @@ export const UserProvider = ({ children }) => {
   // Thus, Provider allows child components to access its useState values.
   // In other words, we are able to set and get the value in every child component.
   const value = { currentUser, setCurrentUser };
+
+  // Step 21
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      setCurrentUser(user);
+    });
+
+    // In useEffect, the whatever we return from this callback runs when it un-mounts.
+    // Unsubscribe function runs this when component unmounts.
+    return unsubscribe;
+  }, []);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

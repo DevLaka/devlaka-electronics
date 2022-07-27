@@ -43,8 +43,8 @@ const SignIn = () => {
         email,
         password
       );
-      // Step 12
-      setCurrentUser(user);
+      // Step 12, Commenting this on Step 23
+      // setCurrentUser(user);
       resetFormFields();
     } catch (err) {
       switch (err.code) {
@@ -61,8 +61,16 @@ const SignIn = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    // Step 16
+    // Problem: Hard to manage the user sign in and sign out state.
+    // In fact i missed to set currentUser when user login with google.
+    // const { user } = await signInWithGooglePopup();
+    // Step 17, Commenting this on Step 23
+    // setCurrentUser(user);
+    // await createUserDocumentFromAuth(user);
+
+    // Step 24
+    await signInWithGooglePopup();
   };
 
   return (
