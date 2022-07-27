@@ -5,13 +5,20 @@ import { Fragment, useContext } from "react";
 import { ReactComponent as Logo } from "../../assets/logo_icon.svg";
 import "./navigation.styles.scss";
 import { UserContext } from "../../contexts/user.context";
+import { signOutUser } from "../../utils/firebase.utils.js/firebase.utils";
 
 const Navigation = () => {
   // Step 13
   // Access the currentUser in UserContext.
   // Important: This component re-renders when currentUser is updated.
   // In other words, any component that is listening for currentUser will render again.
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
+
   return (
     <Fragment>
       <div className="navigation">
@@ -26,7 +33,9 @@ const Navigation = () => {
             {/* Step 16 */}
             {/* Using context */}
             {currentUser ? (
-              <span className="nav-link">SIGN OUT</span>
+              <span className="nav-link" onClick={signOutHandler}>
+                SIGN OUT
+              </span>
             ) : (
               <span className="nav-link">SIGN IN</span>
             )}
