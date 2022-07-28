@@ -23,7 +23,7 @@ export const UserContext = createContext({
   // Step 7
   // Continue writing context.
   // null value passed to the useState at step 5 is for state.
-  // Thus, we have to provide a initial value for the context.
+  // Thus, we have to provide a initial value for the context also.
   // currentUser initially is empty. Thus, assigned null.
   // Thus, we know that there is no context when currentUser is null.
   currentUser: null,

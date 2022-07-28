@@ -5,7 +5,10 @@ import { Fragment, useContext } from "react";
 import { ReactComponent as Logo } from "../../assets/logo_icon.svg";
 import "./navigation.styles.scss";
 import { UserContext } from "../../contexts/user.context";
+import { CartContext } from "../../contexts/cart.context";
 import { signOutUser } from "../../utils/firebase.utils.js/firebase.utils";
+import CartIcon from "../../components/cart-icon/cart-icon.component";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
 const Navigation = () => {
   // Step 13
@@ -13,6 +16,8 @@ const Navigation = () => {
   // Important: This component re-renders when currentUser is updated.
   // In other words, any component that is listening for currentUser will render again.
   const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const { isCartOpen } = useContext(CartContext);
 
   // Step 23 : Commenting this
   // const signOutHandler = async () => {
@@ -41,7 +46,9 @@ const Navigation = () => {
               <span className="nav-link">SIGN IN</span>
             )}
           </Link>
+          <CartIcon />
         </div>
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
