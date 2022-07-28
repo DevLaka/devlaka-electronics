@@ -15,7 +15,7 @@ const Navigation = () => {
   // Access the currentUser in UserContext.
   // Important: This component re-renders when currentUser is updated.
   // In other words, any component that is listening for currentUser will render again.
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const { isCartOpen } = useContext(CartContext);
 
