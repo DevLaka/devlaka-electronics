@@ -5,6 +5,13 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  // Step 18
+  // Solution to step 16.
+  // Objective: Move the sign in and sign up logic to a centralized place.
+  // Solution: Using Observer pattern.
+  // This allows us to listen for stream of events.
+  onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
@@ -71,3 +78,9 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+export const signOutUser = async () => signOut(auth);
+
+// Step 19
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback);

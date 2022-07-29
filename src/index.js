@@ -3,18 +3,24 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// Step 1
-// Import Browser router
 import { BrowserRouter } from "react-router-dom";
+import { UserProvider } from "./contexts/user.context";
+import { ProductsProvider } from "./contexts/products.context";
+import { CartProvider } from "./contexts/cart.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* Step 2 */}
-    {/* Wrap the application with BrowserRouter */}
-    {/* Doing so will give us the access to the features provide by BrowserRouter */}
     <BrowserRouter>
-      <App />
+      {/* Step 8 */}
+      {/* Wrap the components that needs data with Provider. */}
+      <UserProvider>
+        <ProductsProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </ProductsProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
