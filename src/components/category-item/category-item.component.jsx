@@ -2,7 +2,7 @@ import "./category-item.styles.scss";
 
 const CategoryItem = ({ category: { imageUrl, title } }) => {
   return (
-    <div  className="category-container">
+    <div className="category-item-container">
       <div
         className="background-image"
         // Applying dynamic css by passing a style object.
@@ -10,7 +10,7 @@ const CategoryItem = ({ category: { imageUrl, title } }) => {
           backgroundImage: `url(${imageUrl})`,
         }}
       ></div>
-      <div className="category-body-container">
+      <div className="category-item-body-container">
         <h2>{title}</h2>
         <p>Shop now</p>
       </div>
