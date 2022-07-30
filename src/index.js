@@ -5,8 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./contexts/user.context";
-import { ProductsProvider } from "./contexts/products.context";
 import { CartProvider } from "./contexts/cart.context";
+import { CategoriesProvider } from "./contexts/categories.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,11 +15,11 @@ root.render(
       {/* Step 8 */}
       {/* Wrap the components that needs data with Provider. */}
       <UserProvider>
-        <ProductsProvider>
+        <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
-        </ProductsProvider>
+        </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
