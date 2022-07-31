@@ -10,7 +10,7 @@ import {
 // Import the userContext we created.
 import { UserContext } from "../../contexts/user.context";
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import "./sign-in.styles.scss";
 
 const defaultFormFields = {
@@ -99,7 +99,11 @@ const SignIn = () => {
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
           {/* Button type set to button to prevent submitting the form */}
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
+          <Button
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            type="button"
+            onClick={signInWithGoogle}
+          >
             Google Sign In
           </Button>
         </div>
