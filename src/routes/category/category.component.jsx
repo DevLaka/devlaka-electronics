@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { CategoriesContext } from "../../contexts/categories.context";
-import { CategoryContainer, Title } from "./category.styles";
 import ProductCard from "../../components/product-card/product-card.component";
+import { CategoryContainer, Title } from "./category.styles";
 
 const Category = () => {
   const { category } = useParams();
