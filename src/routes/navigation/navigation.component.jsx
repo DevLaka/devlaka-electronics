@@ -30,8 +30,6 @@ const Navigation = () => {
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           <NavLink to="/auth">
-            {/* Step 16 */}
-            {/* Using context */}
             {currentUser ? (
               <NavLink as="span" onClick={signOutUser}>
                 SIGN OUT
