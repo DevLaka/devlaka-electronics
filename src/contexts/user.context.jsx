@@ -37,7 +37,7 @@ const userReducer = (state, action) => {
 
   // Based on the type the returning state object will be different
   switch (type) {
-    case "SET_CURRENT_USER":
+    case USER_ACTION_TYPES.SET_CURRENT_USER:
       // Spreading the current state values and update currentUser.
       return {
         ...state,
