@@ -1,9 +1,7 @@
+import { USER_ACTION_TYPES } from "./user.types";
+
 const INITIAL_STATE = {
   currentUser: null,
-};
-
-export const USER_ACTION_TYPES = {
-  SET_CURRENT_USER: "SET_CURRENT_USER",
 };
 
 // Step 4
@@ -12,7 +10,7 @@ export const USER_ACTION_TYPES = {
 // Here, instead we give a default value for initial state.
 // IOW, If nothing gets passed, then use the initial state.
 // And the only time where state is not getting passed is when it runs for the first time.
-export const userReducer = (state = INITIAL_STATE, action) => {
+export const userReducer = (state = INITIAL_STATE, action = {}) => {
   console.log("Dispatching");
   console.log({ action });
   const { type, payload } = action;

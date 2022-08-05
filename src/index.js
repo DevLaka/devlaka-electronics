@@ -19,13 +19,15 @@ root.render(
     {/* Wrap the application with the provider and give the store to the provider*/}
     <Provider store={store}>
       <BrowserRouter>
-        <UserProvider>
-          <CategoriesProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </CategoriesProvider>
-        </UserProvider>
+        {/* Step 13 */}
+        {/* Remove UserProvider */}
+        {/* <UserProvider> */}
+        <CategoriesProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </CategoriesProvider>
+        {/* </UserProvider> */}
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
