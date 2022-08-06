@@ -9,8 +9,6 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 
-// Step 19
-// Remove action type constants.
 export const USER_ACTION_TYPES = {
   SET_CURRENT_USER: "SET_CURRENT_USER",
 };
@@ -37,31 +35,24 @@ const INITIAL_STATE = {
   currentUser: null,
 };
 
-// Step 14
-// Earlier, UserProvider mounts when the application first mounts.
-// After, removing UserProvider the useEffect inside of this never runs.
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
   const { currentUser } = state;
   console.log({ currentUser });
 
-  // Step 18
-  // Remove setCurrentUser from here.
   const setCurrentUser = (user) => {
-    // dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
+    dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
   };
 
   const value = { currentUser, setCurrentUser };
-  // Step 15
-  // Removing useEffect from here.
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChangedListener((user) => {
-  //     if (user) {
-  //       createUserDocumentFromAuth(user);
-  //     }
-  //     setCurrentUser(user);
-  //   });
-  //   return unsubscribe;
-  // }, []);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      setCurrentUser(user);
+    });
+    return unsubscribe;
+  }, []);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

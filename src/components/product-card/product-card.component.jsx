@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart } from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart-selector";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import {
   ProductCartContainer,
@@ -5,10 +8,6 @@ import {
   Name,
   Price,
 } from "./product-card.styles";
-import { useDispatch } from "react-redux/es/exports";
-import { addItemToCart } from "../../store/cart/cart.action";
-import { useSelector } from "react-redux/es/exports";
-import { selectCartItems } from "../../store/cart/cart-selector";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
