@@ -8,8 +8,6 @@ import { fetchCategoriesAsync } from "../../store/categories/categories.action";
 const Shop = () => {
   const dispatch = useDispatch();
 
-  // Step 7
-  // Dispatch the thunk
   useEffect(() => {
     dispatch(fetchCategoriesAsync());
   }, []);

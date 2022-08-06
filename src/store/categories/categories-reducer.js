@@ -1,15 +1,11 @@
 import { CATEGORIES_ACTION_TYPES } from "./categories.types";
 
-// Step 2
-// Change the architecture to address async nature of thunk
 const INITIAL_STATE = {
   categories: [],
   isLoading: false,
   error: null,
 };
 
-// Step 4
-// Change the architecture to address async nature of thunk
 export const categoriesReducer = (state = INITIAL_STATE, action = {}) => {
   const { type, payload } = action;
   switch (type) {

@@ -13,8 +13,6 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Step 1
-// Add thunk to middleWares array
 const middleWares = [
   process.env.NODE_ENV === "development" && logger,
   thunk,
