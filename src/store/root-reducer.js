@@ -5,6 +5,7 @@ import { combineReducers } from "redux";
 import { userReducer } from "./user/user-reducer";
 
 import { categoriesReducer } from "./categories/categories-reducer";
+import { cartReducer } from "./cart/cart-reducer";
 
 // Step 3
 // combineReducers is a method that allows us to create a final big reducer
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   // Giving the user Reducer a name of user.
   user: userReducer,
   categories: categoriesReducer,
+  cart: cartReducer,
 });
