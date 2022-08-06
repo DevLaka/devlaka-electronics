@@ -3,13 +3,15 @@ import CategoriesPreview from "../categories-preview/categories-preview.componen
 import Category from "../category/category.component";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { fetchCategoriesAsync } from "../../store/categories/categories.action";
+import { fetchCategoriesStart } from "../../store/categories/categories.action";
 
 const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    // Step 16
+    // fetchCategoriesStart is the action listened by saga in step 12.
+    dispatch(fetchCategoriesStart());
   }, []);
 
   return (
