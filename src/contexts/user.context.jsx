@@ -1,10 +1,7 @@
 import { createContext } from "react";
-
-import { useState } from "react";
-
 import { useEffect } from "react";
+import { useReducer } from "react";
 import { onAuthStateChangedListener } from "../utils/firebase.utils.js/firebase.utils";
-
 import { createUserDocumentFromAuth } from "../utils/firebase.utils.js/firebase.utils";
 
 export const UserContext = createContext({
@@ -12,18 +9,59 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 
-export const UserProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const value = { currentUser, setCurrentUser };
+// Step 19
+// Remove action type constants.
+export const USER_ACTION_TYPES = {
+  SET_CURRENT_USER: "SET_CURRENT_USER",
+};
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      setCurrentUser(user);
-    });
-    return unsubscribe;
-  }, []);
+const userReducer = (state, action) => {
+  console.log("Dispatching");
+  console.log({ action });
+  const { type, payload } = action;
+
+  // Based on the type the returning state object will be different
+  switch (type) {
+    case USER_ACTION_TYPES.SET_CURRENT_USER:
+      // Spreading the current state values and update currentUser.
+      return {
+        ...state,
+        currentUser: payload,
+      };
+    default:
+      throw new Error(`Unhandled type ${type} in the userReducer`);
+  }
+};
+
+const INITIAL_STATE = {
+  currentUser: null,
+};
+
+// Step 14
+// Earlier, UserProvider mounts when the application first mounts.
+// After, removing UserProvider the useEffect inside of this never runs.
+export const UserProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
+  const { currentUser } = state;
+  console.log({ currentUser });
+
+  // Step 18
+  // Remove setCurrentUser from here.
+  const setCurrentUser = (user) => {
+    // dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
+  };
+
+  const value = { currentUser, setCurrentUser };
+  // Step 15
+  // Removing useEffect from here.
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChangedListener((user) => {
+  //     if (user) {
+  //       createUserDocumentFromAuth(user);
+  //     }
+  //     setCurrentUser(user);
+  //   });
+  //   return unsubscribe;
+  // }, []);
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
