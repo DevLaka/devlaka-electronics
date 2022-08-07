@@ -7,10 +7,12 @@ import { all, call } from "redux-saga/effects";
 // Import categories saga
 import { categoriesSaga } from "./categories/category.saga";
 
+import { userSaga } from "./user/user.saga";
+
 // Step 2
 // Create and export a JS generator function.
 export function* rootSaga() {
   // Step 15
   // Add categoriesSaga to root saga
-  yield all([call(categoriesSaga)]);
+  yield all([call(categoriesSaga), call(userSaga)]);
 }
