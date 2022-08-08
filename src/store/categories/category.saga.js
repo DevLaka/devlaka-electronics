@@ -6,7 +6,7 @@
 import { takeLatest, all, call, put } from "redux-saga/effects";
 
 // Step 9
-import { getCategoriesAndDocuments } from "../../utils/firebase.utils.js/firebase.utils";
+import { getCategoriesAndDocuments } from "../../utils/firebase.utils/firebase.utils";
 // Here, we don't import fetchCategoriesStart
 import {
   fetchCategoriesSuccess,

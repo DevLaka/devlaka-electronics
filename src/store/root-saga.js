@@ -10,7 +10,7 @@ import { categoriesSaga } from "./categories/category.saga";
 import { userSaga } from "./user/user.saga";
 
 // Step 2
-// Create and export a JS generator function.
+// Create and export root saga which is a JS generator function.
 export function* rootSaga() {
   // Step 15
   // Add categoriesSaga to root saga

@@ -24,7 +24,7 @@ const sagaMiddleware = createSagaMiddleware();
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Step 6
-// Include saga middleware
+// Include saga middleware into redux workflow
 const middleWares = [
   process.env.NODE_ENV === "development" && logger,
   // thunk,
