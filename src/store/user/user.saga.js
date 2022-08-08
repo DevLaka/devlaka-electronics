@@ -4,7 +4,7 @@ import { signInSuccess, signInFailed, singInFailed } from "./user.action";
 import {
   getCurrentUser,
   createUserDocumentFromAuth,
-} from "../../utils/firebase.utils.js";
+} from "../../utils/firebase.utils/firebase.utils";
 
 export function* getSnapShotFromUserAuth(userAuth, additionalDetails) {
   try {
