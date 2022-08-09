@@ -9,8 +9,6 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Step 16
-    // fetchCategoriesStart is the action listened by saga in step 12.
     dispatch(fetchCategoriesStart());
   }, []);
 
