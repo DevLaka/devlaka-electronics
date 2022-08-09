@@ -1,7 +1,4 @@
-// Step 3
-// Change the architecture to address async nature of thunk
 export const CATEGORIES_ACTION_TYPES = {
-  // SET_CATEGORIES: "category/SET_CATEGORIES",
   FETCH_CATEGORIES_START: "category/FETCH_CATEGORIES_START",
   FETCH_CATEGORIES_SUCCESS: "category/FETCH_CATEGORIES_SUCCESS",
   FETCH_CATEGORIES_FAILED: "category/FETCH_CATEGORIES_FAILED",
