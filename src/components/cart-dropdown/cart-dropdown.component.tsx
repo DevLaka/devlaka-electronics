@@ -8,14 +8,8 @@ import {
   CartItems,
   EmptyMessage,
 } from "./cart-dropdown.styles";
+import { CartItem as CartItemType } from "../../store/cart/cart.types";
 
-interface ICartItem {
-  id: number;
-  name: string;
-  imageUrl: string;
-  price: number;
-  quantity: number;
-}
 
 const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
@@ -29,7 +23,7 @@ const CartDropdown = () => {
     <CartDropdownContainer>
       <CartItems>
         {cartItems.length ? (
-          cartItems.map((item: ICartItem) => (
+          cartItems.map((item: CartItemType) => (
             <CartItem key={item.id} cartItem={item} />
           ))
         ) : (

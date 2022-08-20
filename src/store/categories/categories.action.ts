@@ -18,7 +18,7 @@ export type FetchCategoriesFailed = ActionWithPayload<
   Error
 >;
 
-export type CategoryAction =
+export type CategoryAction = 
   | FetchCategoriesStart
   | FetchCategoriesSuccess
   | FetchCategoriesFailed;
