@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 import {
   BaseButton,
   ButtonSpinner,
@@ -18,7 +19,19 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
     [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
   }[buttonType]);
 
-const Button = ({ children, buttonType, isLoading, ...otherProps }) => {
+interface IButton {
+  children: React.ReactNode;
+  isLoading?: boolean;
+  buttonType?: string;
+  onClick?: (event: MouseEvent<HTMLElement>) => void;
+}
+
+const Button = ({
+  children,
+  buttonType,
+  isLoading,
+  ...otherProps
+}: IButton) => {
   const CustomButton = getButton(buttonType);
   return (
     <CustomButton disabled={isLoading} {...otherProps}>
