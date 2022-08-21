@@ -22,7 +22,10 @@ const INITIAL_STATE: UserState = {
   error: null,
 };
 
-export const userReducer = (state = INITIAL_STATE, action: AnyAction) => {
+export const userReducer = (
+  state = INITIAL_STATE,
+  action: AnyAction
+): UserState => {
   if (signInSuccess.match(action)) {
     return {
       ...state,
@@ -44,7 +47,7 @@ export const userReducer = (state = INITIAL_STATE, action: AnyAction) => {
   ) {
     return {
       ...state,
-      currentUser: action.payload,
+      error: action.payload,
     };
   }
 
