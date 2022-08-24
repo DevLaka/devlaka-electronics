@@ -8,8 +8,6 @@ import {
   CartItems,
   EmptyMessage,
 } from "./cart-dropdown.styles";
-import { CartItem as CartItemType } from "../../store/cart/cart.types";
-
 
 const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
@@ -23,7 +21,7 @@ const CartDropdown = () => {
     <CartDropdownContainer>
       <CartItems>
         {cartItems.length ? (
-          cartItems.map((item: CartItemType) => (
+          cartItems.map((item) => (
             <CartItem key={item.id} cartItem={item} />
           ))
         ) : (

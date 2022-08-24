@@ -8,8 +8,13 @@ import {
   Name,
   Price,
 } from "./product-card.styles";
+import { CategoryItem } from "../../store/categories/categories.types";
 
-const ProductCard = ({ product }) => {
+type ProductCardProps = {
+  product: CategoryItem
+}
+
+const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useDispatch();
   const { name, price, imageUrl } = product;
   const cartItems = useSelector(selectCartItems);

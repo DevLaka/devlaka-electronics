@@ -1,37 +1,36 @@
 import { MouseEvent } from "react";
+import { FC, ButtonHTMLAttributes } from "react";
 import {
   BaseButton,
   ButtonSpinner,
   GoogleSingInButton,
   InvertedButton,
-} from "./button.styles.jsx";
+} from "./button.styles";
 
-export const BUTTON_TYPE_CLASSES = {
-  base: "base",
-  google: "google-sign-in",
-  inverted: "inverted",
-};
+export enum BUTTON_TYPE_CLASSES {
+  base = "base",
+  google = "google-sign-in",
+  inverted = "inverted",
+}
 
-const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
+const getButton = (buttonType = BUTTON_TYPE_CLASSES.base): typeof BaseButton =>
   ({
     [BUTTON_TYPE_CLASSES.base]: BaseButton,
     [BUTTON_TYPE_CLASSES.google]: GoogleSingInButton,
     [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
   }[buttonType]);
 
-interface IButton {
-  children: React.ReactNode;
+type ButtonProps = {
   isLoading?: boolean;
-  buttonType?: string;
-  onClick?: (event: MouseEvent<HTMLElement>) => void;
-}
-
-const Button = ({
+  buttonType?: BUTTON_TYPE_CLASSES;
+} & ButtonHTMLAttributes<HTMLButtonElement>
+ 
+const Button: FC<ButtonProps> = ({
   children,
   buttonType,
   isLoading,
   ...otherProps
-}: IButton) => {
+}) => {
   const CustomButton = getButton(buttonType);
   return (
     <CustomButton disabled={isLoading} {...otherProps}>
