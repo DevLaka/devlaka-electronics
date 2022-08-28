@@ -11,6 +11,7 @@ import {
   selectCartTotal,
 } from "../../store/cart/cart-selector";
 import Payment from "../../components/payment/payment.component";
+import { Title } from "../category/category.styles";
 
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
@@ -18,6 +19,7 @@ const Checkout = () => {
 
   return (
     <CheckoutContainer>
+      <Title>CHECKOUT</Title>
       <CheckoutHeader>
         <HeaderBlock>
           <span>Product</span>

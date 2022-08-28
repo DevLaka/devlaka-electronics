@@ -43,7 +43,7 @@ const categories: DirectoryCategory[] = [
     title: "Graphic Cards",
     imageUrl:
       "https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    route: "shop/graphic-cards",
+    route: "shop/graphic cards",
   },
 ];
 

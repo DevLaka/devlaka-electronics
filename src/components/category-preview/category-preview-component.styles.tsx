@@ -12,6 +12,7 @@ export const Title = styled(Link)`
   font-size: 28px;
   margin-bottom: 25px;
   cursor: pointer;
+  letter-spacing: 8px;
 `;
 
 export const Preview = styled.div`

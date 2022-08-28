@@ -7,43 +7,53 @@ export const ProductCartContainer = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
   img {
     width: 100%;
-    height: 95%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: 5px;
   }
   button {
     width: 100%;
-    opacity: 0.7;
-    position: absolute;
-    top: 255px;
-    display: none;
+    opacity: 0.9;
   }
   &:hover {
     img {
       opacity: 0.8;
     }
-    button {
-      opacity: 0.85;
-      display: flex;
-    }
+
+    @media screen and (max-width: 800px) {
+      &:hover {
+        img {
+          opacity: unset;
+        }
+        button {
+          opacity: unset;
+        }
   }
 `;
 
 export const Footer = styled.div`
   width: 100%;
-  height: 5%;
-  display: flex;
   justify-content: space-between;
   font-size: 18px;
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  padding: 8px 10px;
+  opacity: 0.8;
 `;
 
-export const Name = styled.span`
-  width: 90%;
-  margin-bottom: 15px;
+export const Name = styled.div`
+  width: 100%;
+  margin-bottom: 4px;
+  color: white;
 `;
 
-export const Price = styled.span`
-  width: 10%;
+export const Price = styled.div`
+  width: 100%;
+  color: white;
+  margin-bottom: 16px;
 `;

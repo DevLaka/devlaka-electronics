@@ -13,9 +13,8 @@ const CartItem: FC<CartItemProps> = memo(({ cartItem }) => {
       <img src={imageUrl} alt={`${name}`} />
       <ItemDetails>
         <span>{name}</span>
-        <span>
-          {quantity} x ${price}
-        </span>
+        <span className="quantity">Qty: {quantity}</span>
+        <span >${price}</span>
       </ItemDetails>
     </CartItemContainer>
   );

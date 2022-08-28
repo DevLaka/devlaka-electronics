@@ -11,6 +11,7 @@ import {
   NavLinks,
   NavLink,
   LogoContainer,
+  LogoText,
 } from "./navigation.styles";
 import { signOutStart } from "../../store/user/user.action";
 
@@ -26,6 +27,7 @@ const Navigation = () => {
       <NavigationContainer>
         <LogoContainer to="/">
           <Logo className="logo" />
+          <LogoText>DevLaka Electronics</LogoText>
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
