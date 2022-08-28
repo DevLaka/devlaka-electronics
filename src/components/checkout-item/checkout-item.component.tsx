@@ -49,7 +49,7 @@ const CheckoutItem = ({ cartItem }: CheckoutItemProps) => {
           <Value>{quantity}</Value>
           <IncrementCircle onClick={addItemHandler}>+</IncrementCircle>
         </BaseSpanQuantity>
-        <BaseSpanPrice>{price}</BaseSpanPrice>
+        <BaseSpanPrice>${price}</BaseSpanPrice>
       </CheckoutOptionContainer>
       <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
     </CheckoutItemContainer>

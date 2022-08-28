@@ -32,7 +32,8 @@ export const GoogleSingInButton = styled(BaseButton)`
 
   &:hover {
     background-color: #357ae8;
-    border: none;
+    color: white;
+    border: 1 px solid black;
   }
 `;
 
