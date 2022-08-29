@@ -12,4 +12,8 @@ export const Title = styled.h2`
   margin-bottom: 25px;
   text-align: center;
   letter-spacing: 8px;
+
+  @media screen and (max-width: 576px) {
+    margin: 10px 0;
+  }
 `;

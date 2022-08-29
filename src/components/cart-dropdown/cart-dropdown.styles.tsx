@@ -17,12 +17,18 @@ export const CartDropdownContainer = styled.div`
   top: 90px;
   right: 40px;
   z-index: 5;
-  
 
   ${BaseButton},
   ${GoogleSingInButton},
   ${InvertedButton} {
     margin-top: auto;
+  }
+
+  @media screen and (max-width: 576px) {
+    height: 80vh;
+    width: 90%;
+    right: 0px;
+    margin: 0 10px;
   }
 `;
 
@@ -31,6 +37,10 @@ export const CartItems = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+
+  @media screen and (max-width: 576px) {
+    height: 80vh;
+  }
 `;
 
 export const EmptyMessage = styled.span`

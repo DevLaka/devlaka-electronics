@@ -17,6 +17,10 @@ export const ImageContainer = styled.div`
     height: 100%;
     border-radius: 8px;
   }
+
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
 `;
 
 export const CheckoutOptionContainer = styled.div`
@@ -25,6 +29,10 @@ export const CheckoutOptionContainer = styled.div`
   height: 150px;
   justify-content: space-evenly;
   width: 90%;
+
+  @media screen and (max-width: 576px) {
+    font-size: 16px;
+  }
 `;
 
 export const BaseSpanName = styled.div`

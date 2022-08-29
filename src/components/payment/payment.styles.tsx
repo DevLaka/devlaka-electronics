@@ -11,13 +11,19 @@ export const PaymentContainer = styled.div`
   h2 {
     margin-bottom: 28px;
   }
+
+  @media screen and (max-width: 576px) {
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
 `;
 
 export const FormContainer = styled.form`
   height: 100px;
   min-width: 500px;
   display: flex;
-  flex-wrap: true;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 
@@ -27,6 +33,17 @@ export const FormContainer = styled.form`
     height: 36px;
     width: 100%;
     padding: 12px;
+  }
+
+  @media screen and (max-width: 576px) {
+    min-width: 350px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 576px) {
+    button {
+      width: 70%;
+    }
   }
 `;
 

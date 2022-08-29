@@ -35,6 +35,10 @@ export const LogoText = styled.div`
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+
+  @media screen and (max-width: 576px) {
+    display: none;
+  }
 `;
 
 export const NavLinks = styled.div`
@@ -52,4 +56,8 @@ export const NavLinks = styled.div`
 export const NavLink = styled(Link)`
   padding: 0px 15px;
   cursor: pointer;
+
+  @media screen and (max-width: 576px) {
+    font-size: 16px;
+  }
 `;

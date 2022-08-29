@@ -32,6 +32,13 @@ export const ProductCartContainer = styled.div`
         button {
           opacity: unset;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    height: 250px;
+    grid-column: span 6;
   }
 `;
 
