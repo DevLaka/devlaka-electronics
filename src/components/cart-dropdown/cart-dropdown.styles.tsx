@@ -7,8 +7,8 @@ import {
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
-  width: 300px;
-  height: 340px;
+  width: 500px;
+  height: 325px;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -23,13 +23,24 @@ export const CartDropdownContainer = styled.div`
   ${InvertedButton} {
     margin-top: auto;
   }
+
+  @media screen and (max-width: 576px) {
+    height: 80vh;
+    width: 90%;
+    right: 0px;
+    margin: 0 10px;
+  }
 `;
 
 export const CartItems = styled.div`
-  height: 240px;
+  height: 325px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+
+  @media screen and (max-width: 576px) {
+    height: 80vh;
+  }
 `;
 
 export const EmptyMessage = styled.span`

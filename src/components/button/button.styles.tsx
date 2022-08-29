@@ -2,15 +2,14 @@ import styled from "styled-components";
 import { SpinnerContainer } from "../spinner/spinner.styles";
 
 export const BaseButton = styled.button`
-  min-width: 165px;
   width: auto;
-  height: 50px;
+  min-width: 150px;
+  height: 35px;
+  line-height: 35px;
   letter-spacing: 0.5px;
-  line-height: 50px;
-  padding: 0 35px 0 35px;
-  font-size: 15px;
-  background-color: black;
-  color: white;
+  padding: 0 20px 0 20x;
+  background-color: #e7e7e9;
+  color: black;
   text-transform: uppercase;
   font-family: "Open Sans";
   font-weight: bolder;
@@ -19,9 +18,9 @@ export const BaseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 36px;
 
   &:hover {
-    background-color: white;
     color: black;
     border: 1px solid black;
   }
@@ -33,7 +32,8 @@ export const GoogleSingInButton = styled(BaseButton)`
 
   &:hover {
     background-color: #357ae8;
-    border: none;
+    color: white;
+    border: 1 px solid black;
   }
 `;
 

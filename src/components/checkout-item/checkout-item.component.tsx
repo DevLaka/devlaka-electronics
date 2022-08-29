@@ -8,17 +8,21 @@ import {
 import {
   CheckoutItemContainer,
   ImageContainer,
-  BaseSpan,
-  Quantity,
+  BaseSpanName,
+  BaseSpanPrice,
+  BaseSpanQuantity,
   Arrow,
   Value,
   RemoveButton,
+  CheckoutOptionContainer,
+  DecrementCircle,
+  IncrementCircle,
 } from "./checkout-item.styles";
 import { CartItem } from "../../store/cart/cart.types";
 
 type CheckoutItemProps = {
-  cartItem: CartItem
-}
+  cartItem: CartItem;
+};
 
 const CheckoutItem = ({ cartItem }: CheckoutItemProps) => {
   const dispatch = useDispatch();
@@ -37,13 +41,16 @@ const CheckoutItem = ({ cartItem }: CheckoutItemProps) => {
       <ImageContainer>
         <img src={imageUrl} alt={name} />
       </ImageContainer>
-      <BaseSpan>{name}</BaseSpan>
-      <Quantity>
-        <Arrow onClick={removeItemHandler}>&#10094;</Arrow>
-        <Value>{quantity}</Value>
-        <Arrow onClick={addItemHandler}>&#10095;</Arrow>
-      </Quantity>
-      <BaseSpan>{price}</BaseSpan>
+
+      <CheckoutOptionContainer>
+        <BaseSpanName>{name}</BaseSpanName>
+        <BaseSpanQuantity>
+          <DecrementCircle onClick={removeItemHandler}>-</DecrementCircle>
+          <Value>{quantity}</Value>
+          <IncrementCircle onClick={addItemHandler}>+</IncrementCircle>
+        </BaseSpanQuantity>
+        <BaseSpanPrice>${price}</BaseSpanPrice>
+      </CheckoutOptionContainer>
       <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
     </CheckoutItemContainer>
   );

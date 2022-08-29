@@ -21,7 +21,7 @@ const CategoryItem: FC<CategoryItemProps> = ({
     <CategoryItemContainer onClick={onNavigateHandler}>
       <BackgroundImage imageUrl={imageUrl}></BackgroundImage>
       <Body>
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <p>Shop now</p>
       </Body>
     </CategoryItemContainer>

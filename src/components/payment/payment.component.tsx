@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart-selector";
 import { selectCurrentUser } from "../../store/user/user-selector";
 import { PaymentButton } from "./payment.styles";
+import { Title } from "../../routes/category/category.styles";
 
 const ifValidCardElement = (
   card: StripeCardElement | null
@@ -63,9 +64,10 @@ const Payment = () => {
 
   return (
     <PaymentContainer>
+      <Title>PAYMENT</Title>
+      <h2>Credit Card Payment</h2>
       <FormContainer onSubmit={paymentHandler}>
-        <h2>Credit Card Payment:</h2>
-        <CardElement />
+        <CardElement className="cardElement" />
         <PaymentButton
           buttonType={BUTTON_TYPE_CLASSES.inverted}
           isLoading={isProcessingPayment}

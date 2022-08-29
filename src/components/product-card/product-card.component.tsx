@@ -11,8 +11,8 @@ import {
 import { CategoryItem } from "../../store/categories/categories.types";
 
 type ProductCardProps = {
-  product: CategoryItem
-}
+  product: CategoryItem;
+};
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useDispatch();
@@ -26,12 +26,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <Footer>
         <Name>{name}</Name>
         <Price>{price}</Price>
-        <Button
-          buttonType={BUTTON_TYPE_CLASSES.inverted}
-          onClick={addProductToCart}
-        >
-          Add to Cart
-        </Button>
+        <Button onClick={addProductToCart}>Add to Cart</Button>
       </Footer>
     </ProductCartContainer>
   );
