@@ -9,6 +9,7 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import { stripePromise } from "./utils/stripe/stripe.utils";
 import { GlobalStyle } from "./global.styles";
+import * as serviceWorker from './serviceWorkerRegistration'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,3 +28,4 @@ root.render(
 );
 
 reportWebVitals();
+serviceWorker.register();
